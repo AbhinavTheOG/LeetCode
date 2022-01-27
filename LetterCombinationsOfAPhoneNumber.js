@@ -38,7 +38,7 @@ function allCombinations(d1, d2) {
 }
 
 var letterCombinations = function (digits) {
-  output = [];
+  let output;
   var legend = {
     2: ["a", "b", "c"],
     3: ["d", "e", "f"],
@@ -60,9 +60,9 @@ var letterCombinations = function (digits) {
   }
   for (var i = 0; i < digits.length - 1; i++) {
     if (i === 0) {
-      output = [...allCombinations(legend[digits[i]], legend[digits[i + 1]])];
+      output = allCombinations(legend[digits[i]], legend[digits[i + 1]]);
     } else {
-      output = [...allCombinations(output, legend[digits[i + 1]])];
+      output = allCombinations(output, legend[digits[i + 1]]);
     }
   }
 
